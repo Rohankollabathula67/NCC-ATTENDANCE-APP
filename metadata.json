@@ -1,0 +1,5 @@
+{
+  "name": "NCC Command Center",
+  "description": "A comprehensive attendance and squadron management system for National Cadet Corps officers, featuring AI-powered reporting and drill analytics.",
+  "requestFramePermissions": []
+}
