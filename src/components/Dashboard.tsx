@@ -125,7 +125,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ cadets, attendanceHistory 
             <div className="flex justify-center gap-x-4 gap-y-2 mt-2 flex-wrap">
               {pieData.map((entry, index) => (
                 <div key={entry.name} className="flex items-center gap-2 text-xs">
-                  <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: COLORS[index % COLORS.length] }}></div>
+                  {/* <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: COLORS[index % COLORS.length] }}></div> */}
                   <span>{entry.name} ({entry.value})</span>
                 </div>
               ))}

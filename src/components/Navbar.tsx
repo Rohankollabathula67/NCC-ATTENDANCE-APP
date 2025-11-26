@@ -70,14 +70,15 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       <div className="flex items-center gap-3">
         {user.role === 'admin' && (
-            <button onClick={onToggleSidebar} className="md:hidden p-2 -ml-2 hover:bg-stone-800 rounded-lg text-stone-300">
+            <button 
+                onClick={onToggleSidebar} 
+                className="md:hidden p-2 -ml-2 hover:bg-stone-800 rounded-lg text-stone-300"
+                title="Toggle Sidebar"
+            >
                 <Menu size={24} />
             </button>
         )}
-        
-        <div className="bg-gradient-to-br from-yellow-500 to-yellow-700 p-1.5 rounded-full shadow-lg border border-yellow-300 flex-shrink-0">
-            <Shield size={20} className="text-stone-900 md:w-6 md:h-6" fill="currentColor" />
-        </div>
+        <img className="h-10 w-8" src="src/assets/Images/Emblem_of_National_Cadet_Corps_(India).png" alt="National Cadet Corps Emblem" />
         <div>
           <h1 className="text-base md:text-lg font-bold tracking-wide uppercase hidden xs:block leading-tight">NCC Command Center</h1>
           <h1 className="text-base font-bold tracking-wide uppercase xs:hidden">NCC</h1>

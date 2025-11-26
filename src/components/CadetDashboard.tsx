@@ -69,7 +69,7 @@ export const CadetDashboard: React.FC<CadetDashboardProps> = ({ cadet, attendanc
                     {cadet.fullName.charAt(0)}
                 </div>
                 <div className="min-w-0">
-                    <h2 className="text-lg md:text-2xl font-bold truncate">{cadet.rank} {cadet.fullName}</h2>
+                    <h2 className="text-lg md:text-2xl font-bold truncate">{cadet.rank} | {cadet.fullName}</h2>
                     <p className="text-stone-400 font-mono text-xs md:text-sm truncate">{cadet.regimentalNumber}</p>
                 </div>
             </div>
@@ -90,7 +90,6 @@ export const CadetDashboard: React.FC<CadetDashboardProps> = ({ cadet, attendanc
             <div className="text-3xl md:text-4xl font-bold text-stone-800 mb-1">{attendancePercentage}%</div>
             <div className="text-xs md:text-sm text-stone-500 font-medium uppercase tracking-wider">Attendance Rate</div>
             <div className="mt-4 w-full bg-stone-100 h-2 rounded-full overflow-hidden">
-                <div className={`h-full ${attendancePercentage >= 75 ? 'bg-green-500' : 'bg-yellow-500'}`} style={{ width: `${attendancePercentage}%` }}></div>
             </div>
              <p className="text-xs text-stone-400 mt-2">{attendancePercentage >= 75 ? "Good standing" : "Improvement needed"}</p>
         </div>

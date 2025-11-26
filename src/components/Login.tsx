@@ -73,11 +73,11 @@ export const Login: React.FC<LoginProps> = ({ cadets, onLogin }) => {
 
       <div className="bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden relative z-10 animate-in fade-in zoom-in-95 duration-300">
         <div className="p-8 pb-6 text-center border-b border-stone-100">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-stone-900 rounded-full mb-4 shadow-lg border-4 border-yellow-500">
-                <Shield className="text-yellow-500" size={32} fill="currentColor" />
+            <div className="inline-flex items-center justify-center mb-4">
+                <img  alt="NCC Logo" src="src/assets/Images/Emblem_of_National_Cadet_Corps_(India).png" className="object-contain rounded-full h-32 w-32" />
             </div>
-            <h1 className="text-2xl font-bold text-stone-900 uppercase tracking-wide">NCC Command Center</h1>
-            <p className="text-stone-500 text-sm mt-1">1 KAR BN NCC • Unit Management</p>
+            <h1 className="text-2xl font-bold text-stone-900 uppercase tracking-wide">NATIONAL CADET CROPS</h1>
+            <p className="text-stone-500 text-sm mt-1">14 A BN NCC</p>
         </div>
 
         <div className="flex border-b border-stone-200">
@@ -105,12 +105,12 @@ export const Login: React.FC<LoginProps> = ({ cadets, onLogin }) => {
                         <div className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400">
                             {loginType === 'admin' ? <User size={18} /> : <Hash size={18} />}
                         </div>
-                        <input 
+                        <input
                             type="text" 
                             value={identifier}
                             onChange={e => setIdentifier(e.target.value)}
                             className="w-full pl-10 pr-4 py-2.5 border border-stone-300 rounded-lg focus:ring-2 focus:ring-offset-1 outline-none transition-all text-sm"
-                            placeholder={loginType === 'admin' ? 'Enter username' : 'e.g. KA/24/SD/1001'}
+                            placeholder={loginType === 'admin' ? 'Enter username' : 'e.g. AP2023SDA016418'}
                             required
                         />
                     </div>
