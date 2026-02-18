@@ -5,12 +5,20 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:all": "concurrently \"npm run dev\" \"npm run dev:backend\" --names \"frontend,backend\" --prefix-colors \"cyan,magenta\"",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist -r https://github.com/Rohankollabathula67/NCC.git"
+    "deploy": "vite build && gh-pages -d dist -r https://github.com/Rohankollabathula67/NCC.git",
+    "android:open": "npx cap open android",
+    "android:sync": "npx cap sync"
   },
   "dependencies": {
+    "@capacitor/android": "^8.0.1",
+    "@capacitor/cli": "^8.0.1",
+    "@capacitor/core": "^8.0.1",
     "@google/genai": "^1.30.0",
+    "axios": "^1.13.5",
     "clsx": "^2.1.1",
     "lucide-react": "^0.554.0",
     "react": "^19.2.0",
