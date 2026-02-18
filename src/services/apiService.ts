@@ -62,26 +62,29 @@ export const authAPI = {
     }
 };
 
+// Helper to map _id to id
+const mapId = (item: any) => ({ ...item, id: item._id });
+
 // ============= CADETS API =============
 export const cadetsAPI = {
     getAll: async (filters?: { wing?: string; platoon?: string; rank?: string }) => {
         const response = await api.get('/cadets', { params: filters });
-        return response.data;
+        return response.data.map(mapId);
     },
 
     getById: async (id: string) => {
         const response = await api.get(`/cadets/${id}`);
-        return response.data;
+        return mapId(response.data);
     },
 
     create: async (cadetData: any) => {
         const response = await api.post('/cadets', cadetData);
-        return response.data;
+        return mapId(response.data);
     },
 
     update: async (id: string, cadetData: any) => {
         const response = await api.put(`/cadets/${id}`, cadetData);
-        return response.data;
+        return mapId(response.data);
     },
 
     delete: async (id: string) => {
@@ -122,22 +125,22 @@ export const attendanceAPI = {
 export const notificationsAPI = {
     getAll: async () => {
         const response = await api.get('/notifications');
-        return response.data;
+        return response.data.map(mapId);
     },
 
     getUnread: async () => {
         const response = await api.get('/notifications/unread');
-        return response.data;
+        return response.data.map(mapId);
     },
 
     create: async (data: { title: string; message: string; type?: string; recipientId?: string }) => {
         const response = await api.post('/notifications', data);
-        return response.data;
+        return mapId(response.data);
     },
 
     markAsRead: async (id: string) => {
         const response = await api.patch(`/notifications/${id}/read`);
-        return response.data;
+        return mapId(response.data);
     },
 
     clearAll: async () => {
@@ -150,7 +153,7 @@ export const notificationsAPI = {
 export const drillsAPI = {
     getAll: async (upcoming: boolean = false) => {
         const response = await api.get('/drills', { params: { upcoming } });
-        return response.data;
+        return response.data.map(mapId);
     },
 
     create: async (data: {
@@ -161,12 +164,12 @@ export const drillsAPI = {
         sendNotification?: boolean;
     }) => {
         const response = await api.post('/drills', data);
-        return response.data;
+        return mapId(response.data);
     },
 
     update: async (id: string, data: any) => {
         const response = await api.put(`/drills/${id}`, data);
-        return response.data;
+        return mapId(response.data);
     },
 
     delete: async (id: string) => {
