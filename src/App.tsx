@@ -98,7 +98,8 @@ function App() {
   const handleUpdateCadet = async (updatedCadet: Cadet) => {
     try {
       const updated = await cadetsAPI.update(updatedCadet.id, updatedCadet);
-      setCadets(prev => prev.map(c => c.id === updated._id ? { ...updated, id: updated._id } : c));
+      // `updated` already has `id` mapped from `_id` via apiService mapId()
+      setCadets(prev => prev.map(c => c.id === updated.id ? updated : c));
       sendNotification('Cadet Updated', `${updated.fullName}'s information has been updated.`, 'info');
     } catch (err: any) {
       alert(err.response?.data?.message || 'Failed to update cadet');
@@ -183,7 +184,7 @@ function App() {
           <div className="text-red-600 text-5xl mb-4">⚠️</div>
           <h2 className="text-xl font-bold text-stone-800 mb-2">Connection Error</h2>
           <p className="text-stone-600 mb-4">{error}</p>
-          <p className="text-sm text-stone-500 mb-4">Make sure the backend server is running on port 5000</p>
+          <p className="text-sm text-stone-500 mb-4">Make sure the backend server is running and accessible.</p>
           <button
             onClick={() => loadAllData()}
             className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700"
