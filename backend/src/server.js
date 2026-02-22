@@ -24,7 +24,24 @@ connectDB();
 
 // Middleware
 app.use(helmet()); // Security headers
-app.use(cors()); // Enable CORS
+
+// CORS - allow frontend origin from env or fallback to localhost in dev
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+    ? process.env.ALLOWED_ORIGINS.split(',')
+    : ['http://localhost:3000', 'http://localhost:5173'];
+
+app.use(cors({
+    origin: (origin, callback) => {
+        // Allow requests with no origin (mobile apps, curl, etc.)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.includes(origin)) {
+            return callback(null, true);
+        }
+        callback(new Error(`CORS policy: origin ${origin} not allowed`));
+    },
+    credentials: true
+}));
+
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 app.use(morgan('dev')); // Logging
