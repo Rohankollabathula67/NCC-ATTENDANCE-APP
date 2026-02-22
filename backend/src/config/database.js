@@ -27,6 +27,7 @@ mongoose.connection.on('disconnected', () => {
 
 mongoose.connection.on('error', (err) => {
     console.error('❌ MongoDB error:', err);
+    console.log("MongoDB URI: ", process.env.MONGODB_URI);
 });
 
 export default connectDB;
