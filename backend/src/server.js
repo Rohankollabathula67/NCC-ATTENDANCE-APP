@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/database.js';
 import errorHandler from './middleware/errorHandler.js';
 
-// Import routes
+// Import routes//
 import authRoutes from './routes/auth.js';
 import cadetRoutes from './routes/cadets.js';
 import attendanceRoutes from './routes/attendance.js';
