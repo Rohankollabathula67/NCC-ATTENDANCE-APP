@@ -37,7 +37,7 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
       if (err.response?.status === 401) {
         setError('Invalid credentials. Please check your username and password.');
       } else if (err.code === 'ERR_NETWORK') {
-        setError('Cannot connect to server. Make sure the backend is running on port 5000.');
+        setError('Cannot connect to server. Make sure the backend is running and accessible.');
       } else {
         setError(err.response?.data?.message || 'Login failed. Please try again.');
       }
@@ -136,8 +136,8 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
               type="submit"
               disabled={loading}
               className={`w-full py-2.5 rounded-lg text-white font-bold shadow-md transition-transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed ${loginType === 'cadet'
-                  ? 'bg-red-700 hover:bg-red-800 focus:ring-red-500'
-                  : 'bg-stone-800 hover:bg-stone-900 focus:ring-stone-600'
+                ? 'bg-red-700 hover:bg-red-800 focus:ring-red-500'
+                : 'bg-stone-800 hover:bg-stone-900 focus:ring-stone-600'
                 }`}
             >
               {loading ? (
