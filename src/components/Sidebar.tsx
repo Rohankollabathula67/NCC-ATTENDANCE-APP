@@ -73,7 +73,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, isO
             <span>Sign Out</span>
           </button>
           <p className="text-[10px] text-stone-600 mt-4 text-center">
-            v1.3.0 | NCC Digital Ops
+            v1.3.0 | by Rohan
           </p>
         </div>
       </div>
