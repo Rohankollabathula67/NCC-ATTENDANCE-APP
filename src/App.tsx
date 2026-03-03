@@ -7,7 +7,7 @@ import { AttendanceView } from './components/AttendanceView';
 import { DrillScheduler } from './components/DrillScheduler';
 import { Login } from './components/Login';
 import { CadetDashboard } from './components/CadetDashboard';
-import { Settings } from './components/Settings';
+// import { Settings } from './components/Settings';
 import { AppView, Cadet, AttendanceStatus, User, Notification } from './types';
 import { cadetsAPI, attendanceAPI, notificationsAPI, authAPI } from './services/apiService';
 
@@ -207,13 +207,13 @@ function App() {
           return <AttendanceView cadets={cadets} attendanceHistory={attendanceHistory} onSaveAttendance={handleSaveAttendance} />;
         case 'reports':
           return <DrillScheduler cadets={cadets} onNotify={sendNotification} />;
-        case 'settings':
-          return <Settings
-            cadets={cadets}
-            attendanceHistory={attendanceHistory}
-            notifications={notifications}
-            onImportData={handleImportData}
-          />;
+        // case 'settings':
+        //   return <Settings
+        //     cadets={cadets}
+        //     attendanceHistory={attendanceHistory}
+        //     notifications={notifications}
+        //     onImportData={handleImportData}
+        //   />;
         default:
           return <Dashboard cadets={cadets} attendanceHistory={attendanceHistory} />;
       }

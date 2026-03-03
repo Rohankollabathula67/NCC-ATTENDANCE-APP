@@ -17,7 +17,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, isO
     { id: 'attendance', label: 'Attendance Parade', icon: <ClipboardCheck size={20} /> },
     { id: 'roster', label: 'Nominal Roll', icon: <Users size={20} /> },
     { id: 'reports', label: 'Drill Scheduler (AI)', icon: <FileText size={20} /> },
-    { id: 'settings', label: 'System Settings', icon: <Settings size={20} /> },
+    // { id: 'settings', label: 'System Settings', icon: <Settings size={20} /> },
   ];
 
   return (
@@ -72,7 +72,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, isO
             <LogOut size={20} />
             <span>Sign Out</span>
           </button>
-          <p className="text-[10px] text-stone-600 mt-4 text-center">
+          <p className="text-[15px] font-bold text-stone-600 mt-4 text-center">
             v1.3.0 | by Rohan
           </p>
         </div>
